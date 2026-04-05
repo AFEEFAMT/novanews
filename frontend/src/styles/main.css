@@ -1,0 +1,21 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Navbar */
+.navbar { display: flex; justify-content: space-between; align-items: center; background: #111827; color: white; padding: 15px 30px; }
+.btn-logout { background: transparent; border: 1px solid white; color: white; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+.btn-logout:hover { background: white; color: #111827; }
+
+/* Auth Form */
+.auth-container { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.auth-form { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 15px; }
+.auth-form input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+.auth-form button { background: #2563eb; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; }
+.toggle-auth { color: #2563eb; cursor: pointer; text-align: center; font-size: 0.9em; }
+
+/* Filters & Grid */
+.category-filters { display: flex; gap: 10px; margin-bottom: 20px; }
+.category-filters button { padding: 8px 16px; background: #e5e7eb; border: none; border-radius: 20px; cursor: pointer; }
+.category-filters button:hover { background: #d1d5db; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
