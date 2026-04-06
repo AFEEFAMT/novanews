@@ -9,7 +9,7 @@ const NewsCard = ({ article }) => {
     const handleSummarize = async () => {
         setLoading(true);
         try {
-            const res = await axios.post('http://localhost:5000/api/news/summarize', {
+            const res = await axios.post('https://novanews-jbjh.onrender.com/api/news/summarize', {
                 articleText: article.description || article.title
             });
             setSummary(res.data.summary);
