@@ -26,7 +26,7 @@ const NewsCard = ({ article }) => {
                 alert("Authentication error: No token found. Please log in again.");
                 return;
             }
-            await axios.post('http://localhost:5000/api/news/save', {
+            await axios.post('https://novanews-jbjh.onrender.com/api/news/save', {
                 title: article.title,
                 url: article.url,
                 summary: summary || null

@@ -13,7 +13,7 @@ const Login = () => {
         setLoading(true);
         
         try {
-            const res = await axios.post(`http://localhost:5000${endpoint}`, { email, password });
+            const res = await axios.post(`https://novanews-jbjh.onrender.com${endpoint}`, { email, password });
             if (isLogin) {
                 localStorage.setItem('token', res.data.token);
                 window.location.href = '/';

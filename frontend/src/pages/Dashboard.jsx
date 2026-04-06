@@ -13,7 +13,7 @@ const Dashboard = () => {
         setLoading(true);
         setError(null);
         try {
-            const res = await axios.get('http://localhost:5000/api/news', { params });
+            const res = await axios.get('https://novanews-jbjh.onrender.com/api/news', { params });
             const validArticles = res.data.filter(a => a.title !== '[Removed]');
             setArticles(validArticles);
         } catch (err) {

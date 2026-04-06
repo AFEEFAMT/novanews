@@ -12,7 +12,7 @@ const Library = () => {
         const fetchLibrary = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await axios.get('http://localhost:5000/api/news/saved', {
+                const res = await axios.get('https://novanews-jbjh.onrender.com/api/news/saved', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setSavedArticles(res.data);
@@ -29,7 +29,7 @@ const Library = () => {
     const handleDelete = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/news/saved/${id}`, {
+            await axios.delete(`https://novanews-jbjh.onrender.com/api/news/saved/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
