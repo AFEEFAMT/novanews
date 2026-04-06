@@ -17,7 +17,7 @@ const Dashboard = () => {
             const validArticles = res.data.filter(a => a.title !== '[Removed]');
             setArticles(validArticles);
         } catch (err) {
-            setError('Failed to fetch the latest intelligence. Please try again later.');
+            setError('Failed to fetch the latest news . Please try again later.');
             console.error(err);
         } finally {
             setLoading(false);
@@ -66,7 +66,7 @@ const Dashboard = () => {
                 {error && <p className="error-msg">{error}</p>}
 
                 {loading ? (
-                    <p className="info-msg">Aggregating latest intelligence...</p>
+                    <p className="info-msg">Loading news...</p>
                 ) : (
                     <div className="news-grid">
                         {articles.length > 0 ? (

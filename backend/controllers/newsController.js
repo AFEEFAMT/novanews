@@ -73,7 +73,7 @@ exports.getSavedArticles = async (req, res) => {
     try {
         const savedArticles = await prisma.savedArticle.findMany({
             where: { userId: req.user.userId },
-            orderBy: { id: 'desc' } // Shows newest saved articles first
+            orderBy: { id: 'desc' } 
         });
         res.json(savedArticles);
     } catch (error) {

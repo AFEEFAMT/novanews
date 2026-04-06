@@ -44,7 +44,7 @@ const Library = () => {
         <div>
             <Navbar />
             <div className="container">
-                <h2 className="page-title">My Personal Intelligence Library</h2>
+                <h2 className="page-title">My Saved Articles</h2>
                 
                 {error && <p className="error-msg">{error}</p>}
 

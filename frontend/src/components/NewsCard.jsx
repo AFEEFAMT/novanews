@@ -35,7 +35,7 @@ const NewsCard = ({ article }) => {
             });
             alert('Article saved to library');
         } catch (error) {
-            console.error("FULL SAVE ERROR:", error.response?.data || error.message);
+            console.error("error:", error.response?.data || error.message);
             const errorMessage = error.response?.data?.error || 'Unknown server error';
             alert('Failed to save article');
         }
