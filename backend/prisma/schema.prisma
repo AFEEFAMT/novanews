@@ -18,7 +18,7 @@ model SavedArticle {
   id          Int      @id @default(autoincrement())
   title       String
   url         String
-  summary     String?  // Optional field
+  summary     String?
   userId      Int
   user        User     @relation(fields: [userId], references: [id])
 }

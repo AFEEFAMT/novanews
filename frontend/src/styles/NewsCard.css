@@ -10,3 +10,6 @@
 
 .btn-save { background: #111827; color: white; border: none; padding: 10px; border-radius: 4px; width: 100%; cursor: pointer; font-weight: bold; }
 .btn-save:hover { background: #374151; }
+
+.btn-delete { background: #dc2626; color: white; border: none; padding: 10px; border-radius: 4px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 10px; }
+.btn-delete:hover { background: #b91c1c; }

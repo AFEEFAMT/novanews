@@ -14,12 +14,11 @@ const Dashboard = () => {
         setError(null);
         try {
             const res = await axios.get('http://localhost:5000/api/news', { params });
-            // NewsAPI occasionally returns removed articles; we filter them out for a clean UI
             const validArticles = res.data.filter(a => a.title !== '[Removed]');
             setArticles(validArticles);
         } catch (err) {
             setError('Failed to fetch the latest intelligence. Please try again later.');
-            console.error('Failed to fetch news:', err);
+            console.error(err);
         } finally {
             setLoading(false);
         }
@@ -45,15 +44,15 @@ const Dashboard = () => {
         <div>
             <Navbar />
             <div className="container">
-                <form onSubmit={handleSearch} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                <form onSubmit={handleSearch} className="search-form">
                     <input 
                         type="text" 
                         placeholder="Search global headlines (e.g., AI, Space, Markets)..." 
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        style={{ flexGrow: 1, padding: '12px', borderRadius: '6px', border: '1px solid #d1d5db' }}
+                        className="search-input"
                     />
-                    <button type="submit" style={{ padding: '10px 24px', background: '#2563eb', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600' }}>
+                    <button type="submit" className="search-btn">
                         Search
                     </button>
                 </form>
@@ -64,10 +63,10 @@ const Dashboard = () => {
                     <button onClick={() => handleCategoryClick('science')}>Science</button>
                 </div>
 
-                {error && <p style={{ color: '#dc2626', marginTop: '20px' }}>{error}</p>}
+                {error && <p className="error-msg">{error}</p>}
 
                 {loading ? (
-                    <p style={{ marginTop: '20px', color: '#4b5563' }}>Aggregating latest intelligence...</p>
+                    <p className="info-msg">Aggregating latest intelligence...</p>
                 ) : (
                     <div className="news-grid">
                         {articles.length > 0 ? (
@@ -75,7 +74,7 @@ const Dashboard = () => {
                                 <NewsCard key={index} article={article} />
                             ))
                         ) : (
-                            <p style={{ gridColumn: '1 / -1', color: '#6b7280' }}>No articles found for your search.</p>
+                            <p className="info-msg">No articles found for your search.</p>
                         )}
                     </div>
                 )}

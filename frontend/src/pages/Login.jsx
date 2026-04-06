@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+        setLoading(true);
         
         try {
             const res = await axios.post(`http://localhost:5000${endpoint}`, { email, password });
@@ -23,6 +23,8 @@ const Login = () => {
             }
         } catch (error) {
             alert(error.response?.data?.error || 'Authentication failed');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -44,7 +46,9 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)} 
                     required 
                 />
-                <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
+                <button type="submit" disabled={loading}>
+                    {loading ? 'Processing...' : (isLogin ? 'Login' : 'Sign Up')}
+                </button>
                 <p onClick={() => setIsLogin(!isLogin)} className="toggle-auth">
                     {isLogin ? 'Need an account? Register' : 'Already have an account? Login'}
                 </p>

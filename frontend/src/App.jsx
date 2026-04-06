@@ -11,8 +11,6 @@ function App() {
       <Routes>
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />
         <Route path="/" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
-        
-        {/* 2. Added the Library route */}
         <Route path="/library" element={isAuthenticated ? <Library /> : <Navigate to="/login" />} />
       </Routes>
     </Router>

@@ -18,7 +18,7 @@ const Library = () => {
                 setSavedArticles(res.data);
             } catch (err) {
                 setError('Failed to load your personal library.');
-                console.error("Failed to load library", err);
+                console.error(err);
             } finally {
                 setLoading(false);
             }
@@ -36,7 +36,7 @@ const Library = () => {
             setSavedArticles(savedArticles.filter(article => article.id !== id));
         } catch (err) {
             alert('Failed to delete the article.');
-            console.error("Delete error", err);
+            console.error(err);
         }
     };
 
@@ -44,12 +44,12 @@ const Library = () => {
         <div>
             <Navbar />
             <div className="container">
-                <h2 style={{ marginBottom: '20px', color: '#111827' }}>My Personal Intelligence Library</h2>
+                <h2 className="page-title">My Personal Intelligence Library</h2>
                 
-                {error && <p style={{ color: '#dc2626' }}>{error}</p>}
+                {error && <p className="error-msg">{error}</p>}
 
                 {loading ? (
-                    <p style={{ color: '#4b5563' }}>Loading your saved articles...</p>
+                    <p className="info-msg">Loading your saved articles...</p>
                 ) : (
                     <div className="news-grid">
                         {savedArticles.map((article, index) => (
@@ -63,10 +63,9 @@ const Library = () => {
                                     </p>
                                 </div>
 
-                                {/* NEW: The Delete Button */}
                                 <button 
                                     onClick={() => handleDelete(article.id)}
-                                    style={{ marginTop: '10px', background: '#dc2626', color: 'white', border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}
+                                    className="btn-delete"
                                 >
                                     Remove from Library
                                 </button>
@@ -74,7 +73,7 @@ const Library = () => {
                         ))}
                         
                         {savedArticles.length === 0 && (
-                            <p style={{ gridColumn: '1 / -1', textAlign: 'center', marginTop: '40px', color: '#6b7280' }}>
+                            <p className="info-msg">
                                 You haven't saved any articles yet. Head back to the dashboard to find some!
                             </p>
                         )}
