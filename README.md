@@ -1,6 +1,6 @@
 # NovaNews
 
-A personalized news dashboard with AI-powered article summaries. Built as part of the AI & Software Guild Recruitment 2026.
+A personalized news dashboard with AI-powered article summaries.
 
 ---
 
